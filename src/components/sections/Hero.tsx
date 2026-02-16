@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Play, CheckCircle2, ShieldCheck, Zap } from "lucide-react";
+import { ArrowRight, Play, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
@@ -10,162 +10,150 @@ const Hero = () => {
     const containerRef = useRef(null);
     const { scrollY } = useScroll();
 
-    const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-    const y2 = useTransform(scrollY, [0, 500], [0, -150]);
-    const rotate = useTransform(scrollY, [0, 500], [0, 20]);
+    const textY = useTransform(scrollY, [0, 500], [0, 150]);
+    const imageY = useTransform(scrollY, [0, 500], [0, -100]);
+    const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
+    const titleWords = "THE OPERATING SYSTEM FOR MODERN EMPIRES".split(" ");
 
     return (
-        <section ref={containerRef} className="relative pt-32 pb-40 overflow-hidden min-h-screen flex items-center noise-bg">
-            {/* Dynamic Background Elements */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <motion.div
-                    style={{ y: y1 }}
-                    className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-[120px] mix-blend-screen"
-                />
-                <motion.div
-                    style={{ y: y2 }}
-                    className="absolute bottom-[-10%] right-[-5%] w-[800px] h-[800px] bg-purple-400/10 rounded-full blur-[150px] mix-blend-screen"
-                />
+        <section ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050505]">
+            {/* Cinematic Background */}
+            <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.15)_0%,_transparent_50%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_rgba(139,92,246,0.1)_0%,_transparent_50%)]" />
+                <div className="absolute inset-0 noise-bg opacity-30" />
+                <div className="absolute inset-0 cinematic-vignette" />
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="max-w-[1400px] mx-auto px-6 relative z-10 w-full pt-20">
+                <div className="flex flex-col items-center text-center">
+                    {/* Premium Badge */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{ duration: 0.8 }}
+                        className="inline-flex items-center gap-2 px-4 py-2  mb-8"
                     >
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: 0.2 }}
-                            className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/50 backdrop-blur-md border border-white/20 text-blue-700 rounded-full text-sm font-bold mb-10 shadow-sm"
-                        >
-                            <span className="relative flex h-3 w-3">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-600"></span>
-                            </span>
-                            Next-Gen Commerce OS
-                        </motion.div>
-
-                        <h1 className="text-6xl lg:text-8xl font-display font-black leading-[1] mb-8 text-slate-900 tracking-tight">
-                            Scale without <br />
-                            <span className="text-gradient">compromise.</span>
-                        </h1>
-
-                        <p className="text-2xl text-slate-600 mb-12 max-w-xl leading-relaxed font-medium">
-                            The unified ecosystem for brands that demand more. Seamlessly integrate <span className="text-slate-900 underline decoration-blue-500/30">Store, POS, and Logistics</span> in one beautiful platform.
-                        </p>
-
-                        <div className="flex flex-wrap gap-5 mb-12">
-                            <Link
-                                href="/signup"
-                                className="px-10 py-6 bg-slate-900 text-white rounded-2xl font-black text-lg shadow-2xl shadow-slate-900/20 hover:bg-blue-600 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 group"
-                            >
-                                Get Started
-                                <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
-                            </Link>
-                            <Link
-                                href="/product/website-builder"
-                                className="px-10 py-6 bg-white text-slate-900 border border-slate-200 rounded-2xl font-black text-lg hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 flex items-center gap-3 group shadow-sm"
-                            >
-                                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                                    <Play size={18} fill="currentColor" />
-                                </div>
-                                Explore Builder
-                            </Link>
-                        </div>
-
-                        <div className="flex flex-wrap gap-10">
-                            {[
-                                { label: "Zero Code", icon: <Zap size={18} className="text-amber-500" /> },
-                                { label: "24h Launch", icon: <CheckCircle2 size={18} className="text-emerald-500" /> },
-                                { label: "Bank-Grade", icon: <ShieldCheck size={18} className="text-blue-500" /> }
-                            ].map((item, i) => (
-                                <div key={i} className="flex items-center gap-3 text-sm font-bold text-slate-500">
-                                    <div className="p-2 bg-slate-50 rounded-lg">{item.icon}</div>
-                                    {item.label}
-                                </div>
-                            ))}
-                        </div>
+                        {/* <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400">Next-Generation Commerce OS</span> */}
                     </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8, x: 100 }}
-                        animate={{ opacity: 1, scale: 1, x: 0 }}
-                        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-                        className="relative"
-                        style={{ rotate }}
+                    {/* Massive Typography */}
+                    <motion.h1
+                        style={{ y: textY, opacity }}
+                        className="text-[12vw] md:text-[8vw] lg:text-[7vw] font-display font-black leading-[0.85] text-white tracking-tighter mb-12 uppercase"
                     >
-                        {/* Abstract 3D Visualizer Container */}
-                        <div className="relative z-10 w-full aspect-square max-w-[700px] mx-auto group">
-                            {/* Dynamic Glow */}
-                            <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-[100px] animate-pulse group-hover:bg-blue-500/30 transition-colors" />
-
-                            <Image
-                                src="/hero_hologram_dashboard.png"
-                                alt="AZ Commerce 3D Hologram Dashboard"
-                                fill
-                                className="object-contain drop-shadow-[0_20px_50px_rgba(59,130,246,0.2)]"
-                                priority
-                            />
-
-                            {/* Orbital Elements */}
-                            <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                                className="absolute inset-[-10%] border border-blue-100/50 rounded-full pointer-events-none"
-                            />
-                            <motion.div
-                                animate={{ rotate: -360 }}
-                                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                                className="absolute inset-[-20%] border border-purple-100/30 rounded-full border-dashed pointer-events-none"
-                            />
-
-                            {/* Floating Data Panels */}
-                            <motion.div
-                                animate={{ y: [0, -20, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute top-20 -right-4 glass-card p-6 rounded-3xl w-56 z-20 shadow-2xl border-white/40"
+                        {titleWords.map((word, i) => (
+                            <motion.span
+                                key={i}
+                                initial={{ opacity: 0, y: 100 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    duration: 1,
+                                    delay: i * 0.05,
+                                    ease: [0.215, 0.61, 0.355, 1]
+                                }}
+                                className="inline-block mr-[0.2em]"
                             >
-                                <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-600">
-                                        <Zap size={24} />
-                                    </div>
-                                    <div>
-                                        <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Growth</div>
-                                        <div className="text-2xl font-black text-slate-900">+124%</div>
-                                    </div>
-                                </div>
-                                <div className="w-full h-1 bg-slate-100 rounded-full overflow-hidden">
-                                    <motion.div
-                                        initial={{ width: 0 }}
-                                        animate={{ width: "70%" }}
-                                        className="h-full bg-emerald-500"
-                                    />
-                                </div>
-                            </motion.div>
+                                {word === "EMPIRES" ? (
+                                    <span className="text-blue-600 italic font-medium">{word}</span>
+                                ) : word}
+                            </motion.span>
+                        ))}
+                    </motion.h1>
 
-                            <motion.div
-                                animate={{ y: [0, 25, 0] }}
-                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                className="absolute bottom-10 -left-10 glass-card p-6 rounded-3xl w-64 z-20 shadow-2xl border-white/40"
-                            >
-                                <div className="flex items-center gap-4">
-                                    <div className="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-200">
-                                        📦
-                                    </div>
-                                    <div>
-                                        <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Delivering Now</div>
-                                        <div className="text-2xl font-black text-slate-900">2,482</div>
-                                        <div className="text-[10px] font-bold text-blue-600">Real-time Sync Active</div>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </div>
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1, duration: 1 }}
+                        className="text-xl md:text-2xl text-slate-400 max-w-2xl mb-12 font-medium leading-relaxed"
+                    >
+                        AZ-Commerce is a cloud-based all-in-one SaaS platform designed to centralize and automate complete business operations within a unified ecosystem.
+                    </motion.p>
+
+                    {/* Premium Buttons */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.2 }}
+                        className="flex flex-wrap justify-center gap-6 mb-24"
+                    >
+                        <Link
+                            href="/signup"
+                            className="px-10 py-6 bg-white text-black rounded-full font-black text-lg transition-all hover:scale-105 active:scale-95 flex items-center gap-3 group overflow-hidden relative"
+                        >
+                            <span className="relative z-10 font-sans">GET STARTED FREE</span>
+                            <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                            <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                        </Link>
+                        <button className="px-10 py-6 bg-transparent text-white border border-white/20 rounded-full font-black text-lg transition-all hover:bg-white/5 flex items-center gap-3">
+                            <Play size={18} fill="white" />
+                            <span className="font-sans underline underline-offset-8 decoration-white/20">BOOK A DEMO</span>
+                        </button>
                     </motion.div>
                 </div>
+
+                {/* Immersive Dashboard Mockup */}
+                <motion.div
+                    style={{ y: imageY }}
+                    initial={{ opacity: 0, scale: 0.9, rotateX: 20 }}
+                    animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+                    transition={{ delay: 1.5, duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+                    className="relative w-full max-w-6xl mx-auto perspective-1000"
+                >
+                    <div className="relative rounded-[2rem] md:rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
+                        <Image
+                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426"
+                            alt="AZ Commerce Dashboard"
+                            width={1920}
+                            height={1080}
+                            className="w-full h-auto object-cover opacity-80"
+                            priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
+                    </div>
+
+                    {/* Floating Data Tags */}
+                    <div className="absolute -top-10 -left-10 hidden lg:block">
+                        <motion.div
+                            animate={{ y: [0, -10, 0] }}
+                            transition={{ duration: 4, repeat: Infinity }}
+                            className="px-6 py-4 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl"
+                        >
+                            <div className="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-1">LIVE REVENUE</div>
+                            <div className="text-2xl font-black text-white">$142,400.00</div>
+                        </motion.div>
+                    </div>
+
+                    <div className="absolute bottom-20 -right-10 hidden lg:block">
+                        <motion.div
+                            animate={{ y: [0, 10, 0] }}
+                            transition={{ duration: 5, repeat: Infinity }}
+                            className="px-6 py-4 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl"
+                        >
+                            <div className="text-[10px] font-black text-emerald-400 uppercase tracking-widest mb-1">ACTIVE USERS</div>
+                            <div className="text-2xl font-black text-white">4,821</div>
+                        </motion.div>
+                    </div>
+                </motion.div>
             </div>
+
+            {/* Scroll Indicator */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.5 }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+            >
+                <div className="text-[10px] font-black text-white/40 uppercase tracking-[0.3em]">Scroll to explore</div>
+                <motion.div
+                    animate={{ y: [0, 5, 0] }}
+                    transition={{ repeat: Infinity, duration: 2 }}
+                >
+                    <ChevronDown size={20} className="text-white/40" />
+                </motion.div>
+            </motion.div>
         </section>
     );
 };

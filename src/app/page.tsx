@@ -6,9 +6,11 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
-import PainPoints from "@/components/sections/PainPoints";
-import Solution from "@/components/sections/Solution";
-import Modules from "@/components/sections/Modules";
+import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import MaterialityCraft from "@/components/sections/MaterialityCraft";
+import Journey from "@/components/sections/Journey";
+import Gallery from "@/components/sections/Gallery";
+import ScrollingFeatures from "@/components/sections/ScrollingFeatures";
 import POSSimulator from "@/components/sections/POSSimulator";
 import Industries from "@/components/sections/Industries";
 import Pricing from "@/components/sections/Pricing";
@@ -18,6 +20,7 @@ import ROICalculator from "@/components/sections/ROICalculator";
 import Comparison from "@/components/sections/Comparison";
 import Trust from "@/components/sections/Trust";
 import Reviews from "@/components/sections/Reviews";
+import SuccessStories from "@/components/sections/SuccessStories";
 import InteractiveDashboard from "@/components/sections/InteractiveDashboard";
 import { motion, useScroll, useSpring } from "framer-motion";
 
@@ -64,12 +67,12 @@ export default function Home() {
       <Navbar />
 
       <Hero />
-      <Trust />
-      <PainPoints />
-      <Solution />
+      <ScrollingFeatures />
+      <WhyChooseUs />
+      <MaterialityCraft />
       <DeepAnalytics />
       <InteractiveDashboard />
-      <Modules />
+      <Journey />
 
       {/* Product Highlight Section */}
       <section className="py-32 bg-slate-900 relative overflow-hidden">
@@ -114,10 +117,13 @@ export default function Home() {
         </div>
       </section>
 
+      <Gallery />
       <ROICalculator />
       <Comparison />
       <POSSimulator />
       <Reviews />
+      <SuccessStories />
+      <Trust />
       <Industries />
       <Pricing />
       <DemoForm />

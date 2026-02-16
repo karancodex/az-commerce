@@ -94,7 +94,10 @@ const Navbar = () => {
                             >
                                 <Link
                                     href={link.href}
-                                    className="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-widest flex items-center gap-1 py-4"
+                                    className={cn(
+                                        "text-sm font-bold transition-colors uppercase tracking-widest flex items-center gap-1 py-4",
+                                        isScrolled ? "text-slate-600 hover:text-blue-600" : "text-white/70 hover:text-white"
+                                    )}
                                 >
                                     {link.name}
                                     {link.submenu && <ChevronDown size={14} className="group-hover/nav:rotate-180 transition-transform" />}
@@ -131,12 +134,23 @@ const Navbar = () => {
 
                     {/* CTAs */}
                     <div className="hidden lg:flex items-center gap-6">
-                        <Link href="/login" className="text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors uppercase tracking-widest">
+                        <Link
+                            href="/login"
+                            className={cn(
+                                "text-sm font-bold transition-colors uppercase tracking-widest",
+                                isScrolled ? "text-slate-900 hover:text-blue-600" : "text-white hover:text-blue-400"
+                            )}
+                        >
                             Log in
                         </Link>
                         <Link
                             href="/signup"
-                            className="px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold text-sm hover:bg-blue-600 hover:-translate-y-0.5 transition-all shadow-xl shadow-slate-200 uppercase tracking-widest flex items-center gap-2"
+                            className={cn(
+                                "px-8 py-4 rounded-2xl font-bold text-sm transition-all shadow-xl uppercase tracking-widest flex items-center gap-2",
+                                isScrolled
+                                    ? "bg-slate-900 text-white hover:bg-blue-600 shadow-slate-200"
+                                    : "bg-white text-black hover:bg-blue-600 hover:text-white shadow-black/20"
+                            )}
                         >
                             Start Free
                             <ArrowRight size={16} />
