@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Globe, Layout, Palette, MousePointer2, Rocket, Code2 } from "lucide-react";
+import Image from "next/image";
 
 export default function WebBuilderV3() {
     return (
@@ -72,15 +73,15 @@ export default function WebBuilderV3() {
                             Browse Templates
                         </button>
                     </div>
-                    {/* Background Visuals */}
-                    <div className="absolute top-0 right-0 w-1/2 h-full opacity-30 select-none pointer-events-none">
-                        <div className="absolute inset-0 bg-gradient-to-l from-[#0f172a] via-transparent to-[#0f172a] z-10" />
-                        <div className="w-full h-full bg-slate-800 rounded-l-[4rem] border-l-8 border-t-8 border-slate-700 p-12 translate-x-12 translate-y-12">
-                            <div className="w-full h-8 bg-slate-700 rounded-full mb-8" />
-                            <div className="grid grid-cols-2 gap-8">
-                                <div className="aspect-video bg-slate-700 rounded-3xl" />
-                                <div className="aspect-video bg-slate-700 rounded-3xl" />
-                            </div>
+                    <div className="absolute top-0 right-0 w-1/2 h-full select-none pointer-events-none p-8 lg:p-12">
+                        <div className="relative w-full h-full rounded-[3rem] overflow-hidden border-4 border-white/10 group">
+                            <Image
+                                src="/images/v3/web-builder.png"
+                                alt="Web Builder Showcase"
+                                fill
+                                className="object-cover opacity-80 group-hover:scale-110 transition-transform duration-1000"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-l from-[#0f172a] via-transparent to-transparent" />
                         </div>
                     </div>
                 </div>

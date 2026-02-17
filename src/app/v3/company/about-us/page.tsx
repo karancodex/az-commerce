@@ -2,36 +2,56 @@
 
 import { motion } from "framer-motion";
 import { Heart, Target, Users2, Shield, Globe2, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutUsV3() {
     return (
         <main className="pt-32 pb-24">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Hero */}
-                <div className="text-center max-w-4xl mx-auto mb-32">
+                <div className="grid lg:grid-cols-2 gap-20 items-center mb-40">
+                    <div className="max-w-2xl">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 text-orange-600 rounded-full text-xs font-bold uppercase tracking-widest mb-8"
+                        >
+                            <Sparkles size={14} /> Our Mission & Vision
+                        </motion.div>
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 }}
+                            className="text-4xl md:text-7xl font-display font-semibold text-[#0f172a] mb-8 leading-tight tracking-tighter"
+                        >
+                            Empowering the <br /> <span className="text-orange-600">Global Commerce</span> Revolution.
+                        </motion.h1>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="text-xl text-slate-500 font-medium leading-relaxed"
+                        >
+                            AZ Commerce isn't just a platform; it's a foundation. Since 2020, we've been building the infrastructure that allows businesses of all sizes to compete on a global stage.
+                        </motion.p>
+                    </div>
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 text-orange-600 rounded-full text-xs font-bold uppercase tracking-widest mb-8"
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="relative hidden lg:block"
                     >
-                        <Sparkles size={14} /> Our Mission & Vision
+                        <div className="relative aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl border border-slate-100 p-4 bg-white group">
+                            <div className="relative w-full h-full rounded-[3rem] overflow-hidden">
+                                <Image
+                                    src="/images/v3/about-us.png"
+                                    alt="Global Commerce Mission"
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                />
+                            </div>
+                        </div>
                     </motion.div>
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-7xl font-display font-semibold text-[#0f172a] mb-8 leading-tight tracking-tighter"
-                    >
-                        Empowering the <br /> <span className="text-orange-600">Global Commerce</span> Revolution.
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="text-xl text-slate-500 font-medium leading-relaxed"
-                    >
-                        AZ Commerce isn't just a platform; it's a foundation. Since 2020, we've been building the infrastructure that allows businesses of all sizes to compete on a global stage.
-                    </motion.p>
                 </div>
 
                 {/* Culture & values */}

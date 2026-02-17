@@ -113,16 +113,16 @@ const NavbarV3 = () => {
                         </AnimatePresence>
                     </div>
 
-                    <Link href="/v3#pricing" className="text-sm font-bold text-[#0f172a] hover:text-orange-600 transition-colors">Pricing</Link>
-                    <Link href="/v3/blog" className="text-sm font-bold text-[#0f172a] hover:text-orange-600 transition-colors">Resources</Link>
-                    <Link href="/v3#contact" className="text-sm font-bold text-[#0f172a] hover:text-orange-600 transition-colors">Contact</Link>
+                    <Link href="/v3/pricing" className="text-sm font-bold text-[#0f172a] hover:text-orange-600 transition-colors">Pricing</Link>
+                    <Link href="/v3/resources" className="text-sm font-bold text-[#0f172a] hover:text-orange-600 transition-colors">Resources</Link>
+                    <Link href="/v3/contact" className="text-sm font-bold text-[#0f172a] hover:text-orange-600 transition-colors">Contact</Link>
                 </nav>
 
                 {/* Actions */}
                 <div className="flex items-center gap-4">
-                    <Link href="/login" className="hidden sm:block text-sm font-bold text-[#0f172a] hover:text-orange-600 transition-colors">Login</Link>
+                    <Link href="/v3/login" className="hidden sm:block text-sm font-bold text-[#0f172a] hover:text-orange-600 transition-colors">Login</Link>
                     <Link
-                        href="/signup"
+                        href="/v3/signup"
                         className="bg-orange-600 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-orange-700 transition-all shadow-lg shadow-orange-600/20 active:scale-95 flex items-center gap-2"
                     >
                         Start Free Trial <ArrowRight size={16} />
@@ -158,10 +158,11 @@ const NavbarV3 = () => {
                                     <Link key={c.name} href={c.href} className="block text-base font-bold text-[#0f172a]" onClick={() => setMobileMenuOpen(false)}>{c.name}</Link>
                                 ))}
                             </div>
-                            <Link href="/v3#pricing" className="block text-base font-bold text-[#0f172a]" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
-                            <Link href="/v3#contact" className="block text-base font-bold text-[#0f172a]" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+                            <Link href="/v3/pricing" className="block text-base font-bold text-[#0f172a]" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
+                            <Link href="/v3/resources" className="block text-base font-bold text-[#0f172a]" onClick={() => setMobileMenuOpen(false)}>Resources</Link>
+                            <Link href="/v3/contact" className="block text-base font-bold text-[#0f172a]" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
                             <hr className="border-slate-100" />
-                            <Link href="/login" className="block text-base font-bold text-[#0f172a]">Login</Link>
+                            <Link href="/v3/login" className="block text-base font-bold text-[#0f172a]">Login</Link>
                         </div>
                     </motion.div>
                 )}

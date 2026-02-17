@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Brain, Box, BarChart3, Clock, Layers, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 export default function InventoryAIV3() {
     return (
@@ -62,26 +63,18 @@ export default function InventoryAIV3() {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        className="bg-slate-900 rounded-[3rem] p-12 relative overflow-hidden aspect-square flex items-center justify-center"
+                        className="relative rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 group"
                     >
-                        <div className="absolute inset-0 opacity-20">
-                            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-orange-500/50 via-transparent to-transparent" />
-                        </div>
-                        <div className="relative w-full aspect-square border-2 border-dashed border-white/10 rounded-full flex items-center justify-center">
-                            <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                                className="absolute inset-0"
-                            >
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-orange-600 rounded-2xl shadow-2xl flex items-center justify-center">
-                                    <Box size={32} className="text-white" />
-                                </div>
-                            </motion.div>
-                            <div className="w-40 h-40 bg-white/5 backdrop-blur-3xl rounded-full border border-white/10 flex items-center justify-center">
-                                <Brain size={64} className="text-orange-500" />
-                            </div>
+                        <div className="relative aspect-square">
+                            <Image
+                                src="/images/v3/inventory-ai.png"
+                                alt="Inventory AI Visual"
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
                         </div>
                     </motion.div>
                 </div>

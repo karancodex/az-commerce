@@ -64,11 +64,19 @@ const FooterV3 = () => {
                     </div>
 
                     <div>
-                        <h4 className="text-sm font-bold uppercase tracking-widest text-slate-200 mb-6">Contact</h4>
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-slate-200 mb-6">Support</h4>
                         <ul className="space-y-4">
-                            <li className="text-sm font-medium text-slate-400">support@az-commerce.com</li>
-                            <li className="text-sm font-medium text-slate-400">+1 (555) 000-0000</li>
-                            <li className="text-sm font-medium text-slate-400">123 Tech Square, SF</li>
+                            {[
+                                { name: "Help Center", href: "/v3/resources" },
+                                { name: "API Docs", href: "/v3/resources" },
+                                { name: "Pricing", href: "/v3/pricing" },
+                                { name: "Contact", href: "/v3/contact" },
+                                { name: "Status", href: "#" }
+                            ].map(link => (
+                                <li key={link.name}>
+                                    <Link href={link.href} className="text-sm font-medium text-slate-400 hover:text-orange-600 transition-colors uppercase tracking-tighter">{link.name}</Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>

@@ -92,18 +92,15 @@ const WhyChooseV3 = () => {
 
                     <div className="w-full lg:w-1/2 relative">
                         {/* Interactive Illustration Placeholder */}
-                        <div className="bg-slate-50 rounded-[4rem] aspect-square flex items-center justify-center p-12 overflow-hidden border border-slate-100">
+                        <div className="bg-slate-50 rounded-[4rem] aspect-square relative flex items-center justify-center p-12 overflow-hidden border border-slate-100">
+                            {/* Static Decorative Ring */}
+                            <div className="absolute inset-12 border-2 border-dashed border-slate-200 rounded-full" />
+
                             <motion.div
                                 animate={{ rotate: 360 }}
                                 transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                                className="relative w-full h-full border-2 border-dashed border-slate-200 rounded-full flex items-center justify-center"
+                                className="relative w-full h-full flex items-center justify-center"
                             >
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-32 h-32 bg-orange-600 rounded-3xl shadow-2xl flex items-center justify-center z-10">
-                                        <span className="text-white font-semibold text-4xl">AZ</span>
-                                    </div>
-                                </div>
-
                                 {isMounted && benefits.map((b, i) => {
                                     const angle = (i * 360) / benefits.length;
                                     const rad = (angle * Math.PI) / 180;
@@ -123,6 +120,13 @@ const WhyChooseV3 = () => {
                                     );
                                 })}
                             </motion.div>
+
+                            {/* Static AZ Card */}
+                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <div className="w-32 h-32 bg-orange-600 rounded-3xl shadow-2xl flex items-center justify-center z-10">
+                                    <span className="text-white font-semibold text-4xl">AZ</span>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Decorative Background Glow */}

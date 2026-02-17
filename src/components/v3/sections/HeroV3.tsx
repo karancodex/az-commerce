@@ -5,9 +5,15 @@ import { ArrowRight, Play, CheckCircle2, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Spotlight } from "@/components/ui/Spotlight";
+
 const HeroV3 = () => {
     return (
         <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-white">
+            <Spotlight
+                className="-top-40 left-0 md:left-60 md:-top-20"
+                fill="orange"
+            />
             {/* Subtle background element */}
             <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -z-10" />
 
@@ -50,7 +56,7 @@ const HeroV3 = () => {
                             className="flex flex-wrap gap-4 mb-12"
                         >
                             <Link
-                                href="/signup"
+                                href="/v3/signup"
                                 className="px-8 py-4 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-700 transition-all shadow-xl shadow-orange-600/20 active:scale-95 flex items-center gap-2"
                             >
                                 Start Free Trial <ArrowRight size={20} />
@@ -86,7 +92,7 @@ const HeroV3 = () => {
                             </div>
                             <div className="relative aspect-[4/3] w-full">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2015"
+                                    src="/images/v3/hero-dashboard.png"
                                     alt="AZ Commerce Dashboard"
                                     fill
                                     className="object-cover"

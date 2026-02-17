@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Store, Users, ShieldCheck, Briefcase, Network, TrendingUp } from "lucide-react";
+import Image from "next/image";
 
 export default function VendorSystemV3() {
     return (
@@ -59,27 +60,16 @@ export default function VendorSystemV3() {
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        className="relative"
+                        className="relative group p-3 bg-white border border-slate-100 rounded-[3.5rem] shadow-2xl"
                     >
-                        <div className="bg-[#0f172a] rounded-[3rem] p-8 aspect-square flex flex-col justify-center">
-                            <div className="space-y-6">
-                                {[
-                                    { name: "Vendor A", sales: "$12,450", status: "Active" },
-                                    { name: "Vendor B", sales: "$8,900", status: "Active" },
-                                    { name: "Vendor C", sales: "$3,200", status: "Pending" }
-                                ].map((v) => (
-                                    <div key={v.name} className="bg-white/5 border border-white/10 p-6 rounded-2xl flex justify-between items-center">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-10 h-10 bg-orange-600 rounded-lg" />
-                                            <div>
-                                                <div className="text-white font-bold">{v.name}</div>
-                                                <div className="text-slate-400 text-xs">{v.status}</div>
-                                            </div>
-                                        </div>
-                                        <div className="text-orange-500 font-bold">{v.sales}</div>
-                                    </div>
-                                ))}
-                            </div>
+                        <div className="relative aspect-square rounded-[2.8rem] overflow-hidden">
+                            <Image
+                                src="/images/v3/vendor-system.png"
+                                alt="Vendor System Intelligence"
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
                         </div>
                         <div className="absolute -top-10 -right-10 bg-white p-8 rounded-[2rem] shadow-2xl border border-slate-100 text-center">
                             <TrendingUp size={32} className="text-orange-600 mx-auto mb-2" />

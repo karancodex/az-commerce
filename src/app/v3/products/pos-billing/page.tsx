@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ShoppingCart, CreditCard, Smartphone, Receipt, Zap, Wifi } from "lucide-react";
+import Image from "next/image";
 
 export default function POSBillingV3() {
     return (
@@ -59,30 +60,23 @@ export default function POSBillingV3() {
                                 ))}
                             </div>
                         </div>
-                        <div className="relative">
-                            <div className="w-full aspect-[4/3] bg-white rounded-[2rem] shadow-2xl overflow-hidden border-8 border-slate-900 relative">
-                                {/* POS UI Header */}
-                                <div className="h-16 bg-slate-900 flex items-center justify-between px-6">
-                                    <div className="text-white font-bold text-sm">AZ POS Billing</div>
-                                    <div className="w-8 h-8 rounded-full bg-slate-800" />
-                                </div>
-                                {/* POS UI Content */}
-                                <div className="p-6 flex h-full">
-                                    <div className="w-2/3 grid grid-cols-3 gap-4 h-fit">
-                                        {[1, 2, 3, 4, 5, 6].map(i => (
-                                            <div key={i} className="aspect-square bg-slate-50 rounded-xl" />
-                                        ))}
-                                    </div>
-                                    <div className="w-1/3 border-l ml-6 pl-6 space-y-4">
-                                        <div className="h-4 w-full bg-slate-100 rounded" />
-                                        <div className="h-4 w-2/3 bg-slate-100 rounded" />
-                                        <hr />
-                                        <div className="h-8 w-full bg-orange-600 rounded-lg" />
-                                    </div>
+                        <motion.div
+                            initial={{ opacity: 0, rotate: 2 }}
+                            whileInView={{ opacity: 1, rotate: 0 }}
+                            className="relative"
+                        >
+                            <div className="w-full aspect-[4/3] bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-slate-200 p-3 group">
+                                <div className="relative w-full h-full rounded-[1.8rem] overflow-hidden">
+                                    <Image
+                                        src="/images/v3/pos-billing.png"
+                                        alt="POS Billing System"
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                    />
                                 </div>
                             </div>
-                            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-orange-600 rounded-3xl -z-10" />
-                        </div>
+                            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-orange-600/10 rounded-3xl blur-2xl -z-10" />
+                        </motion.div>
                     </div>
                 </motion.div>
 

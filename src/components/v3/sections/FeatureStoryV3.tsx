@@ -10,7 +10,7 @@ const stories = [
         subtitle: "Lightning-fast billing, even offline.",
         desc: "Our POS terminal is built for high-velocity environments. Scan barcodes, handle split payments, and sync stock in milliseconds. Works perfectly on tablets and desktops.",
         features: ["Barcode Scanning support", "Offline mode processing", "Integrated receipt printing"],
-        image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&q=80&w=2070",
+        image: "/images/v3/pos-billing.png",
         accent: "bg-orange-600"
     },
     {
@@ -18,7 +18,7 @@ const stories = [
         subtitle: "Know your growth velocity.",
         desc: "Stop guessing and start leading with real-time data. Monitor sales across all branches, track vendor performance, and predict inventory needs before they happen.",
         features: ["Multi-branch reports", "Sales forecasting", "Custom data exports"],
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070",
+        image: "/images/v3/admin-portal.png",
         accent: "bg-blue-600"
     },
     {
@@ -26,7 +26,7 @@ const stories = [
         subtitle: "Zero stock-outs, zero waste.",
         desc: "Manage 100,000+ SKUs with ease. Our automated system alerts you when stock is low and can even generate purchase orders for your vendors automatically.",
         features: ["Batch & Expiry tracking", "Multi-warehouse management", "Automated stock alerts"],
-        image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2070",
+        image: "/images/v3/inventory-ai.png",
         accent: "bg-purple-600"
     }
 ];
