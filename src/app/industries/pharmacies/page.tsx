@@ -128,11 +128,13 @@ export default function PharmaciesPage() {
                                         <div className="w-3 h-3 rounded-full bg-slate-300" />
                                     </div>
                                 </div>
-                                <div className="flex items-center justify-center bg-slate-50 aspect-[1.4/1] w-full relative">
-                                    <div className="text-blue-400 font-medium flex flex-col items-center gap-4">
-                                        <Cross size={48} className="text-blue-200" />
-                                        <span>Pharmacy Dispensing Terminal</span>
-                                    </div>
+                                <div className="flex items-center justify-center bg-slate-50 aspect-[1.4/1] w-full relative group">
+                                    <Image
+                                        src="/images/v4/pharmacies.jpg"
+                                        alt="Pharmacy Dispensing Terminal"
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                    />
                                 </div>
                             </div>
                         </motion.div>

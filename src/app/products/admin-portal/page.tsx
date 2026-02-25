@@ -298,7 +298,7 @@ export default function AdminPortalPage() {
             <NavbarV4 />
             <AdminPortalHero />
             <AdminFeaturesGrid />
-            <FooterV4 />
+
         </main>
     );
 }

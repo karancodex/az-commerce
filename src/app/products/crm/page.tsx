@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Play, CheckCircle2, Users, Target, PhoneCall, Mail, Kanban, MessageSquare, LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 import NavbarV4 from "@/components/v4/NavbarV4";
@@ -83,14 +84,13 @@ const CRMHero = () => {
                                     crm.azcommerce.com
                                 </div>
                             </div>
-                            <div className="aspect-[1.4/1] bg-slate-50 flex flex-col items-center justify-center p-8 text-center">
-                                <Kanban size={48} className="text-orange-600 mb-4 animate-pulse" />
-                                <div className="text-xl font-bold text-[#0f172a] mb-2">
-                                    Sales Pipeline Active
-                                </div>
-                                <div className="text-sm text-slate-500 font-medium">
-                                    Tracking 150+ Deals This Month
-                                </div>
+                            <div className="aspect-[1.4/1] bg-slate-50 relative group overflow-hidden">
+                                <Image
+                                    src="/images/v3/admin-portal.png"
+                                    alt="CRM Dashboard"
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                />
                             </div>
                         </div>
                     </div>

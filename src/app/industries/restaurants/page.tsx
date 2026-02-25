@@ -118,11 +118,13 @@ export default function RestaurantsPage() {
                                         <div className="w-3 h-3 rounded-full bg-slate-300" />
                                     </div>
                                 </div>
-                                <div className="flex items-center justify-center bg-slate-50 aspect-[1.4/1] w-full relative">
-                                    <div className="text-rose-400 font-medium flex flex-col items-center gap-4">
-                                        <Utensils size={48} className="text-rose-200" />
-                                        <span>Restaurant Dashboard</span>
-                                    </div>
+                                <div className="flex items-center justify-center bg-slate-50 aspect-[1.4/1] w-full relative group">
+                                    <Image
+                                        src="/images/v4/v4_pos_screen_preview.png"
+                                        alt="Restaurant Dashboard"
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                    />
                                 </div>
                             </div>
                         </motion.div>

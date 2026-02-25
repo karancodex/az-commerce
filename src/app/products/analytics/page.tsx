@@ -84,14 +84,13 @@ const AnalyticsHero = () => {
                                     analytics.azcommerce.com
                                 </div>
                             </div>
-                            <div className="aspect-[1.4/1] bg-slate-50 flex flex-col items-center justify-center p-8 text-center">
-                                <BarChart3 size={48} className="text-orange-600 mb-4" />
-                                <div className="text-xl font-bold text-[#0f172a] mb-2">
-                                    Live Dashboard Active
-                                </div>
-                                <div className="text-sm text-slate-500 font-medium">
-                                    Processing 1M+ Data Points
-                                </div>
+                            <div className="aspect-[1.4/1] bg-slate-50 relative group overflow-hidden">
+                                <Image
+                                    src="/images/v4/v4_dashboard_preview.png"
+                                    alt="Analytics Dashboard"
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                />
                             </div>
                         </div>
                     </div>

@@ -119,11 +119,13 @@ export default function DistributorsPage() {
                                         <div className="w-3 h-3 rounded-full bg-slate-300" />
                                     </div>
                                 </div>
-                                <div className="flex items-center justify-center bg-slate-50 aspect-[1.4/1] w-full relative">
-                                    <div className="text-slate-400 font-medium flex flex-col items-center gap-4">
-                                        <Globe size={48} className="text-orange-200" />
-                                        <span>B2B Portal Mockup</span>
-                                    </div>
+                                <div className="flex items-center justify-center bg-slate-50 aspect-[1.4/1] w-full relative group">
+                                    <Image
+                                        src="/images/v4/v4_vendor_panel_preview.png"
+                                        alt="B2B Portal Mockup"
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                    />
                                 </div>
                             </div>
                         </motion.div>

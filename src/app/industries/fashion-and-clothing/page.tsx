@@ -129,11 +129,13 @@ export default function FashionAndClothingPage() {
                                         <div className="w-3 h-3 rounded-full bg-slate-300" />
                                     </div>
                                 </div>
-                                <div className="flex items-center justify-center bg-slate-50 aspect-[1.4/1] w-full relative">
-                                    <div className="text-slate-400 font-medium flex flex-col items-center gap-4">
-                                        <Globe size={48} className="text-orange-200" />
-                                        <span>Clothing Retail POS</span>
-                                    </div>
+                                <div className="flex items-center justify-center bg-slate-50 aspect-[1.4/1] w-full relative group">
+                                    <Image
+                                        src="/images/v4/fashion.jpg"
+                                        alt="Clothing Retail"
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                    />
                                 </div>
                             </div>
                         </motion.div>

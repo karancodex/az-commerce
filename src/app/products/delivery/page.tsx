@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Truck, Map, Clock, ShieldCheck, ArrowRight, Play, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import NavbarV4 from "@/components/v4/NavbarV4";
 import FooterV4 from "@/components/v4/FooterV4";
 import AnnouncementBarV4 from "@/components/v4/sections/AnnouncementBarV4";
@@ -76,11 +77,13 @@ export default function DeliveryPage() {
                     transition={{ delay: 0.4, duration: 0.8 }}
                     className="max-w-5xl mx-auto px-6"
                 >
-                    <div className="bg-slate-50 rounded-[3rem] border border-slate-200 aspect-video flex flex-col items-center justify-center relative overflow-hidden shadow-2xl shadow-slate-200/50">
-                        <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] opacity-20"></div>
-                        <Truck size={64} className="text-orange-600 mb-6 animate-bounce" />
-                        <div className="text-2xl font-bold text-[#0f172a] z-10">Live Tracking Dashboard</div>
-                        <div className="text-slate-500 font-medium z-10">Monitoring 24Active Routes</div>
+                    <div className="bg-slate-50 rounded-[3rem] border border-slate-200 aspect-video relative overflow-hidden shadow-2xl shadow-slate-200/50 group">
+                        <Image
+                            src="/images/v3/delivery-sync.png"
+                            alt="Live Tracking Dashboard"
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                        />
                     </div>
                 </motion.div>
 

@@ -5,6 +5,7 @@ import { ArrowRight, Tag, CreditCard, LayoutTemplate, Star, Play, CheckCircle2, 
 import Link from "next/link";
 import { Spotlight } from "@/components/ui/Spotlight";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const features = [
     {
@@ -138,11 +139,13 @@ export default function RetailShopsPage() {
                         >
                             <div className="bg-white rounded-[2rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.12)] border border-slate-200/60 overflow-hidden">
                                 <div className="h-12 bg-slate-50 border-b border-slate-200 flex items-center px-8 gap-2.5" />
-                                <div className="flex items-center justify-center bg-slate-50 aspect-[1.4/1]">
-                                    <div className="text-slate-400 font-medium flex flex-col items-center gap-4">
-                                        <ShoppingBag size={48} className="text-orange-200" />
-                                        <span>Retail Register Interface</span>
-                                    </div>
+                                <div className="flex items-center justify-center bg-slate-50 aspect-[1.4/1] relative group">
+                                    <Image
+                                        src="/images/v4/retail-shops.jpg"
+                                        alt="Retail Register Interface"
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                    />
                                 </div>
                             </div>
                         </motion.div>
