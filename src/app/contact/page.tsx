@@ -2,8 +2,47 @@
 
 import { motion } from "framer-motion";
 import { Mail, MessageSquare, Phone, MapPin, Send, ArrowRight, Github, Twitter, Linkedin } from "lucide-react";
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 
 export default function ContactPage() {
+    const formRef = useRef<HTMLFormElement>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if (!formRef.current) return;
+
+        setIsSubmitting(true);
+        setSuccessMessage("");
+        setErrorMessage("");
+
+        try {
+            await emailjs.send(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+                {
+                    from_name: formRef.current.from_name.value,
+                    from_email: formRef.current.from_email.value,
+                    subject: formRef.current.subject.value,
+                    message: formRef.current.message.value,
+                },
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+            );
+
+            setSuccessMessage("Message sent successfully!");
+            formRef.current.reset();
+        } catch (error) {
+            console.error("Failed to send message:", error);
+            setErrorMessage("Failed to send message. Please try again later.");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <main className="pt-32 pb-24">
             <div className="max-w-7xl mx-auto px-6">
@@ -41,32 +80,42 @@ export default function ContactPage() {
                         animate={{ opacity: 1, x: 0 }}
                         className="bg-white rounded-[3.5rem] p-12 border border-slate-100 shadow-2xl shadow-slate-200/50"
                     >
-                        <form className="space-y-8">
+                        <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
+                            {successMessage && (
+                                <div className="p-4 bg-green-50 text-green-700 rounded-2xl border border-green-200">
+                                    {successMessage}
+                                </div>
+                            )}
+                            {errorMessage && (
+                                <div className="p-4 bg-orange-50 text-orange-700 rounded-2xl border border-orange-200">
+                                    {errorMessage}
+                                </div>
+                            )}
                             <div className="grid md:grid-cols-2 gap-8">
                                 <div className="space-y-3">
                                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Full Name</label>
-                                    <input type="text" placeholder="John Doe" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-600/20 transition-all font-medium" />
+                                    <input type="text" name="from_name" required placeholder="John Doe" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-600/20 transition-all font-medium" />
                                 </div>
                                 <div className="space-y-3">
                                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Email Address</label>
-                                    <input type="email" placeholder="john@example.com" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-600/20 transition-all font-medium" />
+                                    <input type="email" name="from_email" required placeholder="john@example.com" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-600/20 transition-all font-medium" />
                                 </div>
                             </div>
                             <div className="space-y-3">
                                 <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Subject</label>
-                                <select className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-600/20 transition-all font-medium appearance-none">
-                                    <option>Sales Inquiry</option>
-                                    <option>Technical Support</option>
-                                    <option>Partnership</option>
-                                    <option>Other</option>
+                                <select name="subject" required className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-600/20 transition-all font-medium appearance-none">
+                                    <option value="Sales Inquiry">Sales Inquiry</option>
+                                    <option value="Technical Support">Technical Support</option>
+                                    <option value="Partnership">Partnership</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
                             <div className="space-y-3">
                                 <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Message</label>
-                                <textarea rows={6} placeholder="How can we help you?" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-600/20 transition-all font-medium resize-none" />
+                                <textarea name="message" required rows={6} placeholder="How can we help you?" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-600/20 transition-all font-medium resize-none" />
                             </div>
-                            <button className="w-full bg-orange-600 text-white py-5 rounded-2xl font-bold uppercase tracking-widest hover:bg-orange-700 transition-all shadow-xl shadow-orange-600/20 flex items-center justify-center gap-2 group">
-                                Send Message <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                            <button disabled={isSubmitting} type="submit" className="w-full bg-orange-600 text-white py-5 rounded-2xl font-bold uppercase tracking-widest hover:bg-orange-700 transition-all shadow-xl shadow-orange-600/20 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed">
+                                {isSubmitting ? "Sending..." : "Send Message"} {!isSubmitting && <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                             </button>
                         </form>
                     </motion.div>
