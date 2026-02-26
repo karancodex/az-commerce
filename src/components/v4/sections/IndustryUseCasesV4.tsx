@@ -50,7 +50,7 @@ const IndustryUseCasesV4 = () => {
                             viewport={{ once: true }}
                             className="text-3xl md:text-5xl font-display font-semibold text-[#0f172a] mb-6"
                         >
-                            Tailored for your <span className="text-orange-600 italic">Sector</span>.
+                            Tailored for your <span className="text-orange-600 italic">Sector</span>
                         </motion.h2>
                         <p className="text-lg text-slate-500 font-medium">
                             We provide specific features built for high-demand business industries.

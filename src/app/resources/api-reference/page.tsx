@@ -101,8 +101,9 @@ export default function ApiReferencePage() {
 
                                 <button className="px-8 py-4 bg-white text-[#0f172a] border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition-all flex items-center gap-3 shadow-lg shadow-slate-200/10">
                                     <div className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center">
-                                        <Terminal size={16} className="text-orange-600"
-                                        />
+                                        {/* <Terminal size={16} className="text-orange-600"
+                                        /> */}
+                                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                                     </div>
                                     Get API Key
                                 </button>

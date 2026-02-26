@@ -38,9 +38,9 @@ const CRMHero = () => {
                         </div>
 
                         <h1 className="text-5xl md:text-7xl font-display font-semibold text-[#0f172a] leading-[0.95] tracking-tight mb-8">
-                            Win Deals. <br />
+                            Win Deals <br />
                             <span className="text-orange-600 italic">Retain</span> <br />
-                            Customers.
+                            Customers
                         </h1>
 
                         <p className="text-lg text-slate-500 font-medium leading-relaxed max-w-xl mb-12">
@@ -158,7 +158,7 @@ const CRMFeaturesGrid = () => {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-20">
                     <h2 className="text-3xl md:text-5xl font-display font-semibold text-[#0f172a] mb-6">
-                        Built for <span className="text-orange-600 italic">Relationships</span>.
+                        Built for <span className="text-orange-600 italic">Relationships</span>
                     </h2>
                     <p className="text-lg text-slate-500 font-medium max-w-2xl mx-auto">
                         Everything you need to turn prospects into loyal advocates.

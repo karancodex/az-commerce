@@ -35,7 +35,7 @@ export default function DeliveryPage() {
                         transition={{ delay: 0.1 }}
                         className="text-5xl md:text-7xl font-display font-semibold text-[#0f172a] mb-8 leading-tight tracking-tighter"
                     >
-                        Ship faster with <span className="text-orange-600">complete visibility.</span>
+                        Ship faster with <span className="text-orange-600">complete visibility</span>
                     </motion.h1>
 
                     <motion.p

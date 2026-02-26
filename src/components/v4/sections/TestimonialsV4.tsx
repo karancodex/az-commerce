@@ -42,7 +42,7 @@ const TestimonialsV4 = () => {
                         viewport={{ once: true }}
                         className="text-3xl md:text-5xl font-display font-semibold text-[#0f172a] mb-6"
                     >
-                        Loved by <span className="text-orange-600 italic">10,000+</span> businesses.
+                        Loved by <span className="text-orange-600 italic">10,000+</span> businesses
                     </motion.h2>
                     <p className="text-lg text-slate-500 font-medium">
                         Join the community of modern entrepreneurs scaling with AZ Commerce.

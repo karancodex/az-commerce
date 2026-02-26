@@ -56,7 +56,7 @@ const HeroV4 = () => {
                             transition={{ delay: 0.1 }}
                             className="text-5xl md:text-7xl font-display font-semibold text-[#0f172a] leading-[0.95] tracking-tight mb-8"
                         >
-                            One Platform. <br />
+                            One Platform <br />
                             <span className="text-orange-600 italic">Unlimited</span> <br />
                             Business Growth.
                         </motion.h1>

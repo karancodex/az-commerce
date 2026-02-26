@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Cross, Shield, FileText, Database, Play, CheckCircle2, FlaskConical, Globe } from "lucide-react";
+import { ArrowRight, Box, Truck, BarChart3, Users, Play, CheckCircle2, Package, Globe } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Spotlight } from "@/components/ui/Spotlight";
@@ -9,32 +9,32 @@ import { cn } from "@/lib/utils";
 
 const features = [
     {
-        title: "Batch & Expiry",
-        desc: "Strict FEFO (First Expire First Out) inventory management and automated alerts.",
-        icon: FlaskConical,
+        title: "B2B Bulk Pricing",
+        desc: "Set custom price tiers, volume discounts, and client-specific catalogs.",
+        icon: Box,
         accent: "bg-orange-600"
     },
     {
-        title: "E-Prescriptions",
-        desc: "Securely upload, store, and process digital prescriptions from doctors.",
-        icon: FileText,
+        title: "Warehouse Management",
+        desc: "Track inventory across multiple locations with real-time syncing.",
+        icon: Package,
+        accent: "bg-blue-600"
+    },
+    {
+        title: "Fleet & Routing",
+        desc: "Optimize delivery routes and track your trucks in real-time.",
+        icon: Truck,
         accent: "bg-emerald-600"
     },
     {
-        title: "Supplier Ordering",
-        desc: "Auto-reorder from main distributors when stock hits minimum safety levels.",
-        icon: Database,
-        accent: "bg-indigo-600"
-    },
-    {
-        title: "Compliant Billing",
-        desc: "Generate GST-compliant invoices with batch numbers securely printed.",
-        icon: Shield,
+        title: "Credit & Receivables",
+        desc: "Manage payment terms, credit limits, and automated reminders.",
+        icon: BarChart3,
         accent: "bg-purple-600"
     }
 ];
 
-export default function PharmaciesPage() {
+export default function DistributorsPage() {
     return (
         <main className="min-h-screen bg-white selection:bg-orange-100 selection:text-orange-600 pb-20">
             {/* HERO SECTION */}
@@ -61,7 +61,7 @@ export default function PharmaciesPage() {
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-600"></span>
                                 </span>
-                                For Medical Stores & Pharmacies
+                                For Wholesale & Distribution
                             </motion.div>
 
                             <motion.h1
@@ -70,8 +70,9 @@ export default function PharmaciesPage() {
                                 transition={{ delay: 0.1 }}
                                 className="text-5xl md:text-7xl font-display font-semibold text-[#0f172a] leading-[0.95] tracking-tight mb-8"
                             >
-                                Compliant <br />
-                                Pharmacy <span className="text-orange-600 italic">Management</span>
+                                Scale your <br />
+                                <span className="text-orange-600 italic">Distribution</span> <br />
+                                Network.
                             </motion.h1>
 
                             <motion.p
@@ -80,7 +81,7 @@ export default function PharmaciesPage() {
                                 transition={{ delay: 0.2 }}
                                 className="text-lg text-slate-500 font-medium leading-relaxed max-w-xl mb-12"
                             >
-                                Protect patient health and your bottom line. An end-to-end pharmacy system designed for precise batch tracking, expiry management, and lightning-fast dispensing.
+                                Automate your entire wholesale operation. From B2B order management and multi-warehouse inventory to fleet routing and invoicing—all in one unified platform.
                             </motion.p>
 
                             <motion.div
@@ -99,18 +100,8 @@ export default function PharmaciesPage() {
                                     <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
                                         <Play size={16} className="fill-[#0f172a] translate-x-0.5" />
                                     </div>
-                                    Watch Demo
+                                    Book Demo
                                 </button>
-                            </motion.div>
-
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.4 }}
-                                className="flex flex-wrap gap-8 text-[13px] font-bold text-slate-400 uppercase tracking-widest"
-                            >
-                                <div className="flex items-center gap-2"><CheckCircle2 size={18} className="text-orange-600" /> FDA/HIPAA Compliant Ready</div>
-                                <div className="flex items-center gap-2"><CheckCircle2 size={18} className="text-orange-600" /> Auto-Backup</div>
                             </motion.div>
                         </div>
 
@@ -130,8 +121,8 @@ export default function PharmaciesPage() {
                                 </div>
                                 <div className="flex items-center justify-center bg-slate-50 aspect-[1.4/1] w-full relative group">
                                     <Image
-                                        src="/images/v4/pharmacies.jpg"
-                                        alt="Pharmacy Dispensing Terminal"
+                                        src="/images/v4/v4_vendor_panel_preview.png"
+                                        alt="B2B Portal Mockup"
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-1000"
                                     />
@@ -147,10 +138,10 @@ export default function PharmaciesPage() {
                 <div className="max-w-7xl mx-auto px-6 relative z-10">
                     <div className="mb-16">
                         <h2 className="text-3xl md:text-5xl font-display font-semibold text-[#0f172a] mb-6">
-                            Precision <span className="text-orange-600 italic">Tools</span> for Pharma
+                            Engineered for <span className="text-orange-600 italic">Wholesale</span>
                         </h2>
                         <p className="text-xl text-slate-500 font-medium max-w-2xl">
-                            Mitigate risks and reduce expired inventory losses with tools crafted specifically for modern medical stores.
+                            Eliminate manual data entry and scale your B2B operations with tools built specifically for continuous volume.
                         </p>
                     </div>
 
@@ -163,14 +154,14 @@ export default function PharmaciesPage() {
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1, duration: 0.8 }}
                                 whileHover={{ y: -12, scale: 1.02 }}
-                                className="group relative h-[320px] rounded-[2rem] bg-white border border-slate-100 p-8 overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-blue-100 transition-all duration-500 flex flex-col justify-between"
+                                className="group relative h-[320px] rounded-[2rem] bg-white border border-slate-100 p-8 overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-orange-100 transition-all duration-500 flex flex-col justify-between"
                             >
                                 <div className={cn("absolute -top-24 -right-24 w-64 h-64 blur-[100px] opacity-0 group-hover:opacity-40 transition-opacity duration-700 rounded-full", feature.accent)} />
                                 <div className="relative z-10">
                                     <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-transform duration-500 group-hover:scale-110 shadow-lg text-white", feature.accent)}>
                                         <feature.icon size={26} />
                                     </div>
-                                    <h3 className="text-xl font-black text-[#0f172a] mb-3 group-hover:text-blue-600 transition-colors">
+                                    <h3 className="text-xl font-black text-[#0f172a] mb-3 group-hover:text-orange-600 transition-colors">
                                         {feature.title}
                                     </h3>
                                     <p className="text-slate-500 font-medium text-sm leading-relaxed">
@@ -190,13 +181,13 @@ export default function PharmaciesPage() {
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:24px_24px]" />
                         <div className="relative z-10">
                             <h2 className="text-4xl md:text-5xl font-display font-semibold text-white mb-6">
-                                Bring precision to your pharmacy
+                                Ready to scale your distribution?
                             </h2>
                             <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto">
-                                Manage thousands of SKUs securely with AZ Commerce.
+                                Join hundreds of wholesalers streamlining their supply chain with AZ Commerce.
                             </p>
                             <Link href="/v4/signup" className="inline-flex items-center gap-3 px-8 py-4 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-500 transition-colors">
-                                Get Started Free <ArrowRight size={20} />
+                                Get Started Now <ArrowRight size={20} />
                             </Link>
                         </div>
                     </div>

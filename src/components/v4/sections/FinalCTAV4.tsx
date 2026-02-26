@@ -68,9 +68,12 @@ const FinalCTAV4 = () => {
                             >
                                 Start Free Trial <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
                             </Link>
-                            <button className="px-10 py-5 bg-white/5 backdrop-blur-md text-white border border-white/20 rounded-2xl font-black text-lg hover:bg-white/10 transition-all flex items-center gap-3 uppercase tracking-widest">
+                            <Link
+                                href="/contact"
+                                className="px-10 py-5 bg-white/5 backdrop-blur-md text-white border border-white/20 rounded-2xl font-black text-lg hover:bg-white/10 transition-all flex items-center gap-3 uppercase tracking-widest"
+                            >
                                 <MessageSquare size={24} /> Contact Sales
-                            </button>
+                            </Link>
                         </motion.div>
 
                         <motion.p

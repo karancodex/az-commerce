@@ -71,7 +71,7 @@ export default function RestaurantsPage() {
                                 className="text-5xl md:text-7xl font-display font-semibold text-[#0f172a] leading-[0.95] tracking-tight mb-8"
                             >
                                 The complete <br />
-                                Restaurant <span className="text-orange-600 italic">OS</span>.
+                                Restaurant <span className="text-orange-600 italic">OS</span>
                             </motion.h1>
 
                             <motion.p

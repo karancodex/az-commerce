@@ -72,7 +72,7 @@ export default function FashionAndClothingPage() {
                             >
                                 Elevate your <br />
                                 <span className="text-orange-600 italic">Fashion</span> <br />
-                                Brand.
+                                Brand
                             </motion.h1>
 
                             <motion.p

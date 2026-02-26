@@ -48,7 +48,7 @@ const OnboardingStepsV4 = () => {
                         viewport={{ once: true }}
                         className="text-3xl md:text-5xl font-display font-semibold text-[#0f172a] mb-6"
                     >
-                        Go live in <span className="text-orange-600 italic">5 minutes</span>.
+                        Go live in <span className="text-orange-600 italic">5 minutes</span>
                     </motion.h2>
                     <p className="text-lg text-slate-500 font-medium max-w-2xl mx-auto">
                         A frictionless onboarding experience designed for busy business owners.

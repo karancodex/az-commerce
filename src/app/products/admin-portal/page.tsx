@@ -60,9 +60,9 @@ const AdminPortalHero = () => {
                             transition={{ delay: 0.1 }}
                             className="text-5xl md:text-7xl font-display font-semibold text-[#0f172a] leading-[0.95] tracking-tight mb-8"
                         >
-                            Total Control. <br />
+                            Total Control<br />
                             <span className="text-orange-600 italic">Absolute</span> <br />
-                            Security.
+                            Security
                         </motion.h1>
 
                         <motion.p
@@ -274,7 +274,7 @@ const AdminFeaturesGrid = () => {
                         viewport={{ once: true }}
                         className="text-3xl md:text-5xl font-display font-semibold text-[#0f172a] mb-6"
                     >
-                        Built for <span className="text-orange-600 italic">Governance</span>.
+                        Built for <span className="text-orange-600 italic">Governance</span>
                     </motion.h2>
                     <p className="text-lg text-slate-500 font-medium max-w-2xl mx-auto">
                         Tools designed specifically for operational oversight and system integrity.
